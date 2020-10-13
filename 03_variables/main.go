@@ -16,6 +16,7 @@ func main() {
 	fmt.Println(x == y)
 
 	y++
+	// y = y + 1
 
 	fmt.Println(x == y)
 }
