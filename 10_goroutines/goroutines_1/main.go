@@ -6,8 +6,8 @@ import (
 )
 
 func main() {
-	go test()
-	time.Sleep(1 * time.Second)
+	go test() // go routine
+	time.Sleep(50 * time.Microsecond)
 }
 
 func test() {

@@ -2,17 +2,29 @@ package main
 
 import "fmt"
 
-func generateCounter() (func(), *int) {
+func generateCounter() func(int) int {
 	var count int
-	return func() { count++ }, &count
+	return func(value int) int {
+		count += value
+		return count
+	}
+}
+
+func generateFib() func() int {
+	x, y := 0, 1
+	return func() (r int) {
+		r = x
+		x, y = y, x+y
+		return
+	}
 }
 
 func main() {
-	counter, count := generateCounter()
+	counter := generateCounter()
+	fib := generateFib()
 
-	for i := 0; i < 100; i++ {
-		counter()
+	for i := 0; i < 10; i++ {
+		fmt.Println("Count:", counter(2))
+		fmt.Println("Fib:", fib())
 	}
-
-	fmt.Println("Count:", *count)
 }
