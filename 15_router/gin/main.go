@@ -19,7 +19,9 @@ func init() {
 
 func main() {
 	e := gin.New()
-	e.GET("/users", getUsers)
+
+	e.GET("/users/{id}", getUsers)
+
 	e.Run(":8080")
 }
 
