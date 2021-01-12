@@ -2,19 +2,20 @@ package main
 
 import (
 	"github.com/go-chi/chi"
-	"gorm.io/gorm"
 	"net/http"
 )
 
 func main() {
 	router := chi.NewRouter()
 
-	db := connectDB() // This should return a connection handler, not a collection.
-	defer db.Close()
+	// db, err := gorm.Open()
+	// if err != nil {
+	// 	log.Fatalf("Error while connecting to the database, error: %v", err)
+	//	return
+	// }
+	//r := NewSQLRepository(db)
 
-	coll := db.Collection("blablabla")
-
-	r := NewMongoRepository(coll)
+	r := NewInMemoryRepository(nil)
 
 	s := NewUserService(r)
 	c := NewController(s)
