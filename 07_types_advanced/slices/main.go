@@ -13,6 +13,14 @@ func main() {
 
 	anotherSlice := make([]int, 0, 500)
 
+	length := 1
+
+	var arr [5]int
+
+	v := make([]int, length)
+
+	v[0] = 1
+
 	fmt.Println("Size:", len(anotherSlice))
 	fmt.Println("Capacity:", cap(anotherSlice))
 }
