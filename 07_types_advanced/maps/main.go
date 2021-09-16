@@ -4,8 +4,8 @@ import "fmt"
 
 func main() {
 	m := map[string]int{
-		"Marcos":  1,
-		"Gabriel": 2,
+		"Marcos": 1,
+		"Andres": 2,
 	}
 
 	dm := make(map[string]string, 100)

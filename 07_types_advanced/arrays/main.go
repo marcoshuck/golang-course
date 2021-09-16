@@ -5,12 +5,11 @@ import (
 )
 
 func main() {
-	var array [3]int
+	var array [3]int // pos: 0, 1, 2.
 
 	fmt.Println("Size:", len(array))
 
 	fmt.Println("Array [t=0]:", array)
-
 	fmt.Printf("Array memory: %X\n", &array[0])
 	fmt.Printf("Array memory: %X\n", &array[1])
 	fmt.Printf("Array memory: %X\n", &array[2])

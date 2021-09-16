@@ -1,6 +1,6 @@
 package main
 
-import "fmt"
+import "fmt" // format
 
 func main() {
 	var msg string

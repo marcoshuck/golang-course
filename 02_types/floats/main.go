@@ -3,6 +3,8 @@ package main
 import "fmt"
 
 func main() {
+	// 0.0000000000000000000001
+	// 0.0000000000000000000000000000000000000011
 	var value32 float32 // float
 	var value64 float64 // double
 

@@ -5,7 +5,11 @@ import "fmt"
 func main() {
 	a := 42
 
-	p := &a
+	var inputA int
+	fmt.Println("Ingresar primer valor:")
+	fmt.Scan(&inputA)
+
+	p := &a // C0000012112125 (*int)
 
 	fmt.Println("Value:", a)
 	fmt.Println("Pointer:", p)

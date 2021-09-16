@@ -14,9 +14,9 @@ func main() {
 	// Continuous -> 1, 1.0000000000001, 1.00000000002, 1.00000000000003 (float32 float64)
 	fmt.Println("1 + 1 =", 1+1)
 
-	var valueB int64
+	var valueB int64 // zero-value: 0
 
-	valueA := 1
+	valueA := 1 // (int)
 	valueB = 225
 
 	result := int64(valueA) + valueB
