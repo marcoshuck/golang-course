@@ -2,14 +2,18 @@ package main
 
 import (
 	"fmt"
-	"gorm.io/gorm"
 )
 
-func main() {
-	db, err := gorm.Open()
-	repo := NewGORMRepository(db)
+type Service struct {
+	repository Repository
+}
 
-	found, err := repo.GetByUsername("marcoshuck2")
+func main() {
+	var r Repository
+
+	r = NewInMemoryRepository(nil)
+
+	found, err := r.GetByUsername("marcoshuck2")
 	fmt.Println("User:", found)
 	fmt.Println("Error:", err)
 }

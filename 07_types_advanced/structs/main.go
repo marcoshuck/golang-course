@@ -2,6 +2,19 @@ package main
 
 import "fmt"
 
+// Are you tired from your original data types?
+// string, integers, floats, whatever
+
+type Point struct {
+	X int
+	Y int
+}
+
+type Line struct {
+	A Point
+	B Point
+}
+
 var (
 	StatusOnline     Status = "online"
 	StatusOffline    Status = "offline"
@@ -9,6 +22,7 @@ var (
 	StatusAFK        Status = "afk"
 )
 
+// Status is your custom data type.
 type Status string
 
 type User struct {
@@ -21,7 +35,7 @@ func main() {
 	u := User{
 		Username: "marcoshuck",
 		Password: "1234",
-		Status:   StatusAFK,
+		Status:   StatusOnVacation,
 	}
 
 	fmt.Println("Username:", u.Username)

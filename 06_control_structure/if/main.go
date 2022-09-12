@@ -37,6 +37,11 @@ func runAnotherExample() error {
 func doAction(value int) (int, error) {
 	if value > 10 {
 		return 0, errors.New("number bigger than 10")
+	} else if value < 10 {
+
+	} else {
+
 	}
+
 	return value * 10, nil
 }

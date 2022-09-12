@@ -3,19 +3,20 @@ package main
 import "fmt"
 
 func generateCounter() func(int) int {
-	var count int
+	var count int // state
 	return func(value int) int {
 		count += value
 		return count
 	}
 }
 
-func BadCount(value int) int {
-	var count int
+func BadCount(value int) int { // doesn't have side-effects
+	var count int // doesn't keep state
 	count += value
 	return count
 }
 
+// iterator
 func generateFib() func() int {
 	x, y := 0, 1
 	return func() (r int) {
@@ -26,12 +27,12 @@ func generateFib() func() int {
 }
 
 func main() {
-	counter := generateCounter()
-	// fib := generateFib()
+	// counter := generateCounter()
+	fib := generateFib()
 
-	for i := 0; i < 10; i++ {
-		fmt.Println("Count:", counter(i))
-		fmt.Println("Bad Count:", BadCount(i))
-		// fmt.Println("Fib:", fib())
+	for i := 0; i < 100; i++ {
+		//fmt.Println("Count:", counter(i))
+		//fmt.Println("Bad Count:", BadCount(i))
+		fmt.Println("Fib:", fib())
 	}
 }

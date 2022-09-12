@@ -1,29 +1,41 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"log"
+)
 
 func main() {
-	a := 42
 
 	var inputA int
 	fmt.Println("Ingresar primer valor:")
-	fmt.Scan(&inputA)
+	_, err := fmt.Scan(&inputA)
+	if err != nil {
+		log.Fatalln("Error:", err)
+	}
+	fmt.Println("Input A:", inputA)
 
-	p := &a // C0000012112125 (*int)
+	value := 42
+	// getting the reference (hex code) from memory
+	p := &value // C0000012112125 (*int)
 
-	fmt.Println("Value:", a)
+	fmt.Println("Value:", value)
 	fmt.Println("Pointer:", p)
 
+	// dereference the address
+	// value = 24
 	*p = 24
 
-	fmt.Println("Value:", a)
+	fmt.Println("Value:", value)
 	fmt.Println("Pointer:", p)
+	fmt.Println("Pointer of pointer:", &p)
 
-	A(a)
-	fmt.Println("Call A:", a)
+	A(value) // value = 24
+	fmt.Println("Call A:", value)
 
-	B(&a)
-	fmt.Println("Call B:", a)
+	b := &value
+	B(b)
+	fmt.Println("Call B:", value)
 }
 
 func A(a int) {

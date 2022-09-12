@@ -34,8 +34,12 @@ func runApplication() error {
 	return nil
 }
 
+// f(x) => (y, err)
 func doAction(value int) (int, error) {
-	return value * 10, errors.New("failed to do action")
+	if value == 0 {
+		return 0, errors.New("value is 0")
+	}
+	return value * 10, nil
 }
 
 // try and catch, finally.

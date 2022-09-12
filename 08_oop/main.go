@@ -7,10 +7,7 @@ type Engine struct {
 	HorsePower float64
 }
 
-type Seat struct {
-	Trademark string
-}
-
+// NewEngine is an initialization function
 func NewEngine(tm string, hp float64) Engine {
 	return Engine{
 		Trademark:  tm,
@@ -18,22 +15,35 @@ func NewEngine(tm string, hp float64) Engine {
 	}
 }
 
+type Seat struct {
+	Trademark string
+}
+
+func NewSeat(tm string) Seat {
+	return Seat{
+		Trademark: tm,
+	}
+}
+
 // Composition over inheritance
 
 type Car struct {
-	engine Engine
-	seat   *Seat // nil
+	engine Engine // compose
+	seat   *Seat  // aggregate (nil)
 }
 
-func NewCar(engine Engine) Car {
+func NewCar(engine Engine, seat *Seat) Car {
 	return Car{
 		engine: engine,
+		seat:   seat,
 	}
 }
 
 func main() {
 	e := NewEngine("Audi", 1200.0)
-	c := NewCar(e)
+	s := NewSeat("SuperComfy")
+	c := NewCar(e, &s)
 
 	fmt.Printf("Car: %+v\n", c)
+	fmt.Printf("Seat: %+v\n", *c.seat)
 }

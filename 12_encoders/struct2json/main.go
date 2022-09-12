@@ -3,7 +3,16 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"time"
 )
+
+type Employee struct {
+	Name      string
+	LastName  string
+	CreatedAt time.Time
+	UpdatedAt time.Time
+	DeletedAt *time.Time // DeletedAt = NULL, unless: Employee is deleted.
+}
 
 type Person struct {
 	secretKey    string `json:"secret_key"`

@@ -25,6 +25,7 @@ func (b *HouseBuilder) SetWindows(n int) *HouseBuilder {
 func (b *HouseBuilder) Find(result interface{}) *HouseBuilder {
 	result = b.House
 	b.Error = nil
+	return b
 }
 
 func (b *HouseBuilder) Build() (House, error) {

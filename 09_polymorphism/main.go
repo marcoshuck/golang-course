@@ -3,11 +3,23 @@ package main
 import "fmt"
 
 type Animal interface {
+	fmt.Stringer
 	Speak()
+	Run()
 }
 
 type dog struct {
 	Name string
+}
+
+func (d *dog) String() string {
+	//TODO implement me
+	panic("implement me")
+}
+
+func (d *dog) Run() {
+	//TODO implement me
+	panic("implement me")
 }
 
 func (d *dog) Speak() {
@@ -22,6 +34,16 @@ func NewDog(name string) Animal {
 
 type cat struct {
 	Name string
+}
+
+func (c *cat) String() string {
+	//TODO implement me
+	panic("implement me")
+}
+
+func (c *cat) Run() {
+	//TODO implement me
+	panic("implement me")
 }
 
 func (c *cat) Speak() {

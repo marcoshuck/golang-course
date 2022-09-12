@@ -8,13 +8,6 @@ import (
 	"strings"
 )
 
-const (
-	ADD = 1
-	SUB = 2
-	DIV = 3
-	MTP = 4
-)
-
 func main() {
 	reader := bufio.NewReader(os.Stdin)
 
@@ -29,25 +22,6 @@ func main() {
 	option, err := readIntegerInput(reader)
 	if err != nil {
 		panic(err)
-	}
-
-	size := 5
-	// var arr [size]float64
-	numbers := make([]float64, size)
-
-	fmt.Print("Type the initial number -> ")
-	numbers[0], err = readFloatInput(reader)
-	if err != nil {
-		panic(err)
-	}
-
-	for i := 1; i < size; i++ {
-		fmt.Printf("Type the %d number ->", i+1)
-		numbers[i], err = readFloatInput(reader)
-		if err != nil {
-			// TODO: Ask the user to try again for this number
-			panic(err)
-		}
 	}
 
 	fmt.Print("A -> ")

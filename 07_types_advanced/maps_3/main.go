@@ -5,6 +5,7 @@ import "fmt"
 func main() {
 	m := make(map[string]int, 100)
 	for i := 0; i < 100; i++ {
+		// Key1: 1
 		m[fmt.Sprintf("Key%d", i)] = i
 	}
 

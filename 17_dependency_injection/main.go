@@ -2,15 +2,13 @@ package main
 
 import (
 	"fmt"
-	"gorm.io/gorm"
 )
 
 type PrinterInitializer interface {
 	Start() error
 }
 
-type PrinterManager struct {
-}
+type PrinterManager struct{}
 
 func (p *PrinterManager) Start() error {
 	fmt.Println("Initializing the worst nightmare!!")
@@ -21,21 +19,35 @@ func NewPrinterManager() PrinterInitializer {
 	return &PrinterManager{}
 }
 
-type Application struct {
-	printerInitializer PrinterInitializer
-	db                 *interface{}
+type allGoodPrinter struct {
 }
 
-func NewApplication(p PrinterInitializer, db *gorm.DB) *Application {
+func (a *allGoodPrinter) Start() error {
+	fmt.Println("It's all good man! Saul goodman")
+	return nil
+}
+
+func NewPrinterAllGood() PrinterInitializer {
+	return &allGoodPrinter{}
+}
+
+type Application struct {
+	printerInitializer PrinterInitializer
+	//db                 *interface{}
+}
+
+func NewApplication(p PrinterInitializer) *Application {
 	return &Application{
 		printerInitializer: p,
-		db:                 db,
+		//db:                 db,
 	}
 }
 
 func main() {
-	p := NewPrinterManager()
-	app := NewApplication(p)
+	//p := NewPrinterManager()
+	saul := NewPrinterAllGood()
+
+	app := NewApplication(saul)
 
 	app.printerInitializer.Start()
 }

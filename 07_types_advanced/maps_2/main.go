@@ -9,10 +9,12 @@ func main() {
 	studentScores = make(map[string]int, 100)
 	fmt.Println("Map:", studentScores)
 
+	// v: (int) - default value
+	// ok: (bool) - does the value exist?
 	v, ok := studentScores["Marcos"]
 	if !ok {
 		fmt.Println("Marcos does not exist")
-		return
+		//return
 	}
 
 	studentScores["Marcos"] = 100

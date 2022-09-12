@@ -10,6 +10,7 @@ func main() {
 	fmt.Println("Size:", len(array))
 
 	fmt.Println("Array [t=0]:", array)
+
 	fmt.Printf("Array memory: %X\n", &array[0])
 	fmt.Printf("Array memory: %X\n", &array[1])
 	fmt.Printf("Array memory: %X\n", &array[2])

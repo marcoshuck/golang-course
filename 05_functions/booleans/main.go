@@ -9,7 +9,9 @@ func main() {
 	fmt.Println("XOR", xor(true, false))
 }
 
+// f(x, y, z) -> w
 func and(a, b bool) bool {
+	// * magic *
 	return a && b
 }
 

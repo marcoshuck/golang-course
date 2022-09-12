@@ -3,7 +3,8 @@ package main
 import "fmt"
 
 func main() {
-	for i := 1; i <= 10; i = i + 10 {
+	// initial setting; condition; step;
+	for i := 1; i < 10; i = i + 1 {
 		fmt.Printf("%d ", i)
 	}
 }

@@ -10,6 +10,9 @@ func main() {
 	fmt.Println("10:", function(10))
 }
 
+// http
+
+// f(x) = x^2 - 5
 func function(x float64) float64 {
 	return math.Pow(x, 2) - 5
 }
